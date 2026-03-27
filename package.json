@@ -10,6 +10,12 @@
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.58.2",
-    "@types/node": "^25.5.0"
+    "@types/node": "^25.5.0",
+    "allure-playwright": "^3.6.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.4.0",
+    "csv-parse": "^6.2.1",
+    "xlsx": "^0.18.5"
   }
 }
