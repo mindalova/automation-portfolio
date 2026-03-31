@@ -12,7 +12,8 @@ export class HomePage {
         private readonly searchButton: Locator;
         private readonly logo: Locator; 
 
-    constructor(page: Page) {
+    //constructor
+        constructor(page: Page) {
 
         this.page = page;
         this.myAccount = page.locator('span:has-text("My Account")');
@@ -22,16 +23,26 @@ export class HomePage {
         this.searchButton = page.locator('i.fa-solid.fa-magnifying-glass');
         this.logo = page.locator('img[title="Your Store"]');
     }
-    //constructor
-
+    
     //methods
     async isHomePageLoaded() {
-    return await this.logo.isVisible();
+        try {
+            await expect(this.logo).toBeVisible({ timeout: 5000 });
+            return true;
+        } catch (error) {
+            console.error("Home page did not load properly:", error);
+            return false;
+        }
 }
     async goToRegisterPage() {
-        this.myAccount.click();
-        this.register.click();
+    try {
+        await this.myAccount.click();
+        await this.register.click();
+    } catch (error) {
+        console.error("Navigation to register page failed:", error);
+        throw error; 
     }
+}
 
     async goToLoginPage() {
         this.myAccount.click();
@@ -42,9 +53,6 @@ export class HomePage {
         await this.searchBox.fill(productName);
         await this.searchButton.click();
     }
-
-
-
 
 
 }

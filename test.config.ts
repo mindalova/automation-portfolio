@@ -1,14 +1,8 @@
 export class TestConfig {
-    //app url
-    appUrl = "http://localhost/opencart/upload";
-
-    //user credentials
-    email = "petya@mail.com"
-    password = "123456"
-
-    //product details
-    productName = "MacBook";
-    productPrice = "$602.00";
-    productQuantity = "3"
-
+  readonly appUrl = "http://localhost/opencart/upload";
+  readonly email = "petya@mail.com";
+  readonly password = "123456";
+  readonly productName = "MacBook";
+  readonly productPrice = "$602.00";
+  readonly productQuantity = "3";
 }
