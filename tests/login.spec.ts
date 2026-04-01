@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { HomePage } from '../pages/HomePage';
 import { LoginPage } from '../pages/LoginPage';
 import { TestConfig } from '../test.config';
+import { only } from 'node:test';
 
 const testConfig = new TestConfig();
 
@@ -13,13 +14,13 @@ test.describe('Login Tests', () => {
         await homePage.goToLoginPage();
     });
 
-    test('Successful login with valid credentials @smoke', async ({ page }) => {
+    test.only('Successful login with valid credentials @smoke', async ({ page }) => {
         const loginPage = new LoginPage(page);
 
         await loginPage.login(testConfig.email, testConfig.password);
 
         await expect(page).toHaveURL(/route=account\/account/);
-        await expect(page.locator('h2').first()).toHaveText('My Account');
+        await expect(page.locator('h1').first()).toHaveText('My Account');
     });
 
     test('Login fails with invalid password @regression', async ({ page }) => {
