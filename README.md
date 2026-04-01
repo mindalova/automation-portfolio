@@ -66,8 +66,8 @@ runs tests, and publishes the Allure report as a post-build artifact.
 | Area       | Status      |
 |------------|-------------|
 | Home Page  | ✅ Implemented |
-| Login      | 🔄 Planned |
-| Register   | 🔄 Planned |
+| Login      | ✅ Implemented |
+| Register   | 🔄 In progress |
 | Search     | 📋 Planned |
 | Cart       | 📋 Planned |
 
