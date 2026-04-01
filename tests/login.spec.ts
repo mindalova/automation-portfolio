@@ -14,7 +14,7 @@ test.describe('Login Tests', () => {
         await homePage.goToLoginPage();
     });
 
-    test.only('Successful login with valid credentials @smoke', async ({ page }) => {
+    test('Successful login with valid credentials @smoke', async ({ page }) => {
         const loginPage = new LoginPage(page);
 
         await loginPage.login(testConfig.email, testConfig.password);
@@ -47,7 +47,7 @@ test.describe('Login Tests', () => {
         await expect(page.locator('.alert-danger')).toBeVisible();
     });
 
-    test('Forgotten Password link navigates correctly', async ({ page }) => {
+    test.only('Forgotten Password link navigates correctly', async ({ page }) => {
         const loginPage = new LoginPage(page);
 
         await loginPage.clickForgottenPassword();
