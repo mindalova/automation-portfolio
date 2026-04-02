@@ -10,6 +10,8 @@ targeting the [OpenCart](https://www.opencart.com/) demo e-commerce application.
 automation-portfolio/
 ├── pages/              # Page Object Model classes
 ├── tests/              # Test specs
+├── testdata/           # Test data files (JSON / faker-generated data)
+├── utils/              # Helper utilities and data generation (faker)
 ├── allure-results/     # Allure report output
 ├── .github/workflows/  # GitHub Actions CI pipeline
 ├── Jenkinsfile         # Jenkins CI pipeline
