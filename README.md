@@ -24,6 +24,7 @@ automation-portfolio/
 - **Playwright** – browser automation
 - **TypeScript** – typed test code
 - **Page Object Model** – scalable, maintainable test architecture
+- **@faker-js/faker** – dynamic test data generation
 - **Allure** – test reporting
 - **GitHub Actions** – CI on push
 - **Jenkins** – local CI pipeline with Allure integration
