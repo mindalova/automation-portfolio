@@ -1,0 +1,6 @@
+[
+  { "email": "petya@mail.com", "password": "123456", "expectedResult": "success" },
+  { "email": "",               "password": "", "expectedResult": "error"   },
+  { "email": "petya@mail.com", "password": "",          "expectedResult": "error"   },
+  { "email": "wrong@test.com", "password": "wrongpass", "expectedResult": "error"   }
+]
