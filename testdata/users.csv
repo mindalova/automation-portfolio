@@ -1,0 +1,5 @@
+email,password,expectedResult
+petya@mail.com,123456,success
+,123456,error
+petya@mail.com,,error
+wrong@test.com,wrongpass,error
