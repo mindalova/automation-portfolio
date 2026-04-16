@@ -84,6 +84,7 @@ runs tests, and publishes the Allure report as a post-build artifact.
 | Register  | 🔄 In progress  |                            |
 | Search    | 📋 Planned      |                            |
 | Cart      | 📋 Planned      |                            |
+| API       | 🔄 In progress  |                            |
 
 ---
 
