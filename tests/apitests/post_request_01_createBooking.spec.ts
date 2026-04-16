@@ -45,7 +45,7 @@ test('Create a new booking Post Request', async ({ request }) => {
 
   // validate response
   expect(responseBody.bookingid).toBeDefined();
-  expect(responseBody.tohaveProperty('bookingid'));
+  expect(responseBody).toHaveProperty('bookingid');
   expect(responseBody.booking.firstname).toBe(requestBody.firstname);
   expect(responseBody.booking.lastname).toBe(requestBody.lastname);
   expect(responseBody.booking.totalprice).toBe(requestBody.totalprice);
