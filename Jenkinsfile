@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+    node {
+        customWorkspace 'E:\\JenkinsWorkspaces\\automation-portfolio-main'
+    }
+}
+
 
     environment {
         CI = 'true'

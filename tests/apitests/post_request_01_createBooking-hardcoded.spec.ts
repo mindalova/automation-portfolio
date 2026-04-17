@@ -1,26 +1,32 @@
 /*
 Create a new booking
-Request body is random datafrom faker library
-Request type is POST
+Validate the response
+Validate the response body
+Validate the response headers
+Validate the response status code
+Validate the response time
+Validate the response body
+Validate the response headers
+Validate the response status code
+Validate the response time
 */
 
 import { test, expect } from '@playwright/test';
-import { RandomDataUtil } from '../../utils/randomDataGenerator';
+//import { apiRequest } from '../utils/apiRequest';
 
-test('Create a new booking Post Request using JSON file', async ({ request }) => {
+test('Create a new booking Post Request hardcoded data', async ({ request }) => {
   // request body
   const requestBody = {
-    firstname: RandomDataUtil.getFirstName(),
-    lastname: RandomDataUtil.getlastName(),
-    totalprice: RandomDataUtil.getRandomPrice(100, 1000),
-    depositpaid: RandomDataUtil.getRandomBoolean(),
+    firstname: 'Bon3',
+    lastname: 'Jovi3',
+    totalprice: 111,
+    depositpaid: true,
     bookingdates: {
-      checkin: RandomDataUtil.getRandomDate(),
-      checkout: RandomDataUtil.getRandomDate(),
+      checkin: '2026-01-01',
+      checkout: '2027-01-01',
     },
-    additionalneeds: RandomDataUtil.getRandomString(10),
+    additionalneeds: 'Breakfast',
   };
-  console.log(requestBody);
 
   // send post request
   const response = await request.post(

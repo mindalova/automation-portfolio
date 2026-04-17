@@ -1,95 +1,143 @@
-# 🧪 OpenCart – Playwright Automation Portfolio
+# OpenCart Playwright Automation Portfolio
 
-A portfolio project demonstrating real-world test automation skills,
-built as part of a transition into QA Automation engineering.
+Portfolio project for UI and API test automation with Playwright and TypeScript.
+The project targets a local OpenCart instance for end-to-end browser coverage and uses the Restful Booker API for API testing examples.
 
-End-to-end test automation project built with **Playwright** and **TypeScript**,
-targeting the [OpenCart](https://www.opencart.com/) demo e-commerce application.
+## Project Structure
 
----
-
-## 🏗️ Project Structure
-
+```text
+automation-portfolio-main/
+|-- pages/                 Page Object Model classes
+|-- testdata/              CSV and JSON test data
+|-- tests/
+|   |-- apitests/          API POST booking tests
+|   |-- accountRegistration.spec.ts
+|   |-- home-page.spec.ts
+|   |-- login.spec.ts
+|   |-- loginDDT.spec.ts
+|   |-- loginCSV.spec.ts
+|   |-- loginJSON.spec.ts
+|-- utils/                 Data generation helpers
+|-- Jenkinsfile            Jenkins pipeline
+|-- playwright.config.ts   Playwright configuration
+|-- test.config.ts         Shared app and test values
 ```
-automation-portfolio/
-├── pages/              # Page Object Model classes
-├── tests/              # Test specs
-├── testdata/           # Test data files (CSV / JSON / faker-generated data)
-├── utils/              # Helper utilities and data generation (faker)
-├── allure-results/     # Allure report output
-├── .github/workflows/  # GitHub Actions CI pipeline
-├── Jenkinsfile         # Jenkins CI pipeline
-├── playwright.config.ts
-└── test.config.ts      # Custom test data configuration
-```
 
-## ⚙️ Tech Stack
+## Tech Stack
 
-- **Playwright** – browser automation
-- **TypeScript** – typed test code
-- **Page Object Model** – scalable, maintainable test architecture
-- **Data-Driven Testing (array / CSV / JSON)** – parameterized test execution with external test data
-- **@faker-js/faker** – dynamic test data generation
-- **Allure** – test reporting
-- **GitHub Actions** – CI on push
-- **Jenkins** – local CI pipeline with Allure integration
+- Playwright
+- TypeScript
+- Page Object Model (POM)
+- Data-driven testing with inline arrays, CSV, and JSON
+- Faker for dynamic test data
+- Allure reporting
+- Jenkins for CI execution
 
----
+## What Is Covered
 
-## 🚀 Getting Started
+### UI tests
+
+- Home page validation
+- Navigation to Register and Login pages
+- Product search for existing and non-existing products
+- Login scenarios with:
+  - hardcoded test data
+  - inline data-driven array
+  - CSV file
+  - JSON file
+- Registration scenarios with:
+  - successful registration using generated data
+  - existing email validation
+  - invalid email format validation
+  - empty first name validation
+
+### API tests
+
+POST `https://restful-booker.herokuapp.com/booking`
+
+- Create booking with hardcoded request body
+- Create booking with request body from JSON file
+- Create booking with Faker-generated random data
+- Validate response status, booking id, and returned booking data
+
+## Current Test Data Sources
+
+- `testdata/users.csv`
+- `testdata/users.json`
+- `testdata/postRequest.json`
+- `utils/randomDataGenerator.ts`
+
+## Local Setup
 
 ### Prerequisites
 
-- Node.js >= 18
-- OpenCart installed locally at `http://localhost/opencart/upload/`
+- Node.js 18 or newer
+- A local OpenCart instance available at `http://localhost/opencart/upload/`
 
-> **Note:** Tests target a local OpenCart instance.
-> Update `baseURL` in `playwright.config.ts` if your setup differs.
+If your OpenCart URL is different, update:
 
-### Install dependencies
+- [playwright.config.ts](E:/Programming/2026/automation-portfolio-main/playwright.config.ts)
+- [test.config.ts](E:/Programming/2026/automation-portfolio-main/test.config.ts)
+
+### Install
 
 ```bash
 npm ci
 npx playwright install
 ```
 
-### Run tests
+### Run all tests
 
 ```bash
 npx playwright test
 ```
 
-### View HTML report
+### Run only API tests
+
+```bash
+npx playwright test tests/apitests
+```
+
+### Open the HTML report
 
 ```bash
 npx playwright show-report
 ```
 
----
+## Reporting
 
-## 🔁 CI/CD
+The project is configured with these reporters:
 
-Tests run automatically on every push via **GitHub Actions**.
-A **Jenkinsfile** is included for teams using Jenkins — it installs dependencies,
-runs tests, and publishes the Allure report as a post-build artifact.
+- list
+- html
+- dot
+- allure-playwright
 
----
+After execution, Playwright HTML output and Allure results are generated locally.
 
-## 📋 Test Coverage (current)
+## Jenkins
 
-| Area      | Status         | Notes                      |
-|-----------|----------------|----------------------------|
-| Home Page | ✅ Implemented  |                            |
-| Login     | ✅ Implemented  | DDT: array / CSV / JSON    |
-| Register  | 🔄 In progress  |                            |
-| Search    | 📋 Planned      |                            |
-| Cart      | 📋 Planned      |                            |
-| API       | 🔄 In progress  |                            |
+The repository includes a [Jenkinsfile](E:/Programming/2026/automation-portfolio-main/Jenkinsfile) that:
 
----
+- checks out the project
+- installs dependencies
+- installs Playwright browsers
+- runs the full Playwright suite
+- archives Playwright and Allure artifacts
 
-## 📫 Contact
+The pipeline is configured to run in a custom Jenkins workspace:
 
-**Petya Mindalova**
-💼 [LinkedIn](https://www.linkedin.com/in/petya-mindalova-9722a72b)
-📧 petmindalova@gmail.com
+`E:\JenkinsWorkspaces\automation-portfolio-main`
+
+## Notes
+
+- The UI suite currently runs on Chromium.
+- `baseURL` is configured for a local OpenCart environment.
+- There is no GitHub Actions workflow in the repository at the moment.
+
+## Contact
+
+Petya Mindalova
+
+- LinkedIn: [petya-mindalova](https://www.linkedin.com/in/petya-mindalova-9722a72b)
+- Email: `petmindalova@gmail.com`
