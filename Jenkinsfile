@@ -1,10 +1,10 @@
 pipeline {
     agent {
-    node {
-        customWorkspace 'E:\\JenkinsWorkspaces\\automation-portfolio-main'
+        node {
+            label 'built-in'
+            customWorkspace 'E:\\JenkinsWorkspaces\\automation-portfolio-main'
+        }
     }
-}
-
 
     environment {
         CI = 'true'
