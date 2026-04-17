@@ -1,7 +1,9 @@
 # OpenCart Playwright Automation Portfolio
 
-Portfolio project for UI and API test automation with Playwright and TypeScript.
-The project targets a local OpenCart instance for end-to-end browser coverage and uses the Restful Booker API for API testing examples.
+A portfolio project for UI and API test automation with **Playwright** and **TypeScript**.  
+The project targets a local OpenCart instance for end-to-end browser coverage and uses the **Restful Booker API** for API testing examples.
+
+---
 
 ## Project Structure
 
@@ -23,6 +25,8 @@ automation-portfolio-main/
 |-- test.config.ts         Shared app and test values
 ```
 
+---
+
 ## Tech Stack
 
 - Playwright
@@ -33,51 +37,52 @@ automation-portfolio-main/
 - Allure reporting
 - Jenkins for CI execution
 
+---
+
 ## What Is Covered
 
-### UI tests
+### UI Tests
 
 - Home page validation
 - Navigation to Register and Login pages
 - Product search for existing and non-existing products
-- Login scenarios with:
-  - hardcoded test data
-  - inline data-driven array
+- Login scenarios:
+  - Hardcoded test data
+  - Inline data-driven array
   - CSV file
   - JSON file
-- Registration scenarios with:
-  - successful registration using generated data
-  - existing email validation
-  - invalid email format validation
-  - empty first name validation
+- Registration scenarios:
+  - Successful registration using generated data
+  - Existing email validation
+  - Invalid email format validation
+  - Empty first name validation
 
-### API tests
+### API Tests
 
-POST `https://restful-booker.herokuapp.com/booking`
+`POST https://restful-booker.herokuapp.com/booking`
 
 - Create booking with hardcoded request body
 - Create booking with request body from JSON file
 - Create booking with Faker-generated random data
-- Validate response status, booking id, and returned booking data
+- Validate response status, booking ID, and returned booking data
 
-## Current Test Data Sources
+### Current Test Data Sources
 
 - `testdata/users.csv`
 - `testdata/users.json`
 - `testdata/postRequest.json`
 - `utils/randomDataGenerator.ts`
 
+---
+
 ## Local Setup
 
 ### Prerequisites
 
-- Node.js 18 or newer
-- A local OpenCart instance available at `http://localhost/opencart/upload/`
+- Node.js `>= 18`
+- A local OpenCart instance at `http://localhost/opencart/upload/`
 
-If your OpenCart URL is different, update:
-
-- [playwright.config.ts](E:/Programming/2026/automation-portfolio-main/playwright.config.ts)
-- [test.config.ts](E:/Programming/2026/automation-portfolio-main/test.config.ts)
+If your OpenCart URL is different, update `playwright.config.ts` and `test.config.ts` accordingly.
 
 ### Install
 
@@ -86,44 +91,48 @@ npm ci
 npx playwright install
 ```
 
-### Run all tests
+### Run All Tests
 
 ```bash
 npx playwright test
 ```
 
-### Run only API tests
+### Run Only API Tests
 
 ```bash
 npx playwright test tests/apitests
 ```
 
-### Open the HTML report
+### Open HTML Report
 
 ```bash
 npx playwright show-report
 ```
 
+---
+
 ## Reporting
 
-The project is configured with these reporters:
+The project is configured with the following reporters:
 
-- list
-- html
-- dot
-- allure-playwright
+- `list`
+- `html`
+- `dot`
+- `allure-playwright`
 
 After execution, Playwright HTML output and Allure results are generated locally.
 
+---
+
 ## Jenkins
 
-The repository includes a [Jenkinsfile](E:/Programming/2026/automation-portfolio-main/Jenkinsfile) that:
+The repository includes a `Jenkinsfile` that:
 
-- checks out the project
-- installs dependencies
-- installs Playwright browsers
-- runs the full Playwright suite
-- archives Playwright and Allure artifacts
+- Checks out the project
+- Installs dependencies
+- Installs Playwright browsers
+- Runs the full Playwright suite
+- Archives Playwright and Allure artifacts
 
 The pipeline is configured to run in a custom Jenkins workspace:
 
@@ -137,7 +146,6 @@ The pipeline is configured to run in a custom Jenkins workspace:
 
 ## Contact
 
-Petya Mindalova
-
-- LinkedIn: [petya-mindalova](https://www.linkedin.com/in/petya-mindalova-9722a72b)
-- Email: `petmindalova@gmail.com`
+**Petya Mindalova**  
+[LinkedIn](https://www.linkedin.com/in/petya-mindalova-9722a72b)  
+`petmindalova@gmail.com`
