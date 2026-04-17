@@ -81,5 +81,21 @@ static getPhoneNumber()
     return faker.string.uuid();
   }
 
+  static getRandomDate(): string {
+    return faker.date.recent().toISOString().split('T')[0];
+  }
+
+  static getRandomBoolean(): boolean {
+    return faker.datatype.boolean();
+  }
+
+  static getRandomString(length: number): string {
+    return faker.string.alphanumeric(length);
+  }
+
+  static getRandomPrice(min: number, max: number): number {
+    return faker.number.int({ min, max });
+  }
+
 
 }
