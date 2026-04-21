@@ -1,0 +1,19 @@
+{
+  firstname: 'Roosevelt',
+  lastname: 'Koepp',
+  totalprice: 117,
+  depositpaid: true,
+  bookingdates: { checkin: '2026-04-16', checkout: '2026-04-16' },
+  additionalneeds: 'zcbTDO0WRG'
+}
+{
+  bookingid: 4795,
+  booking: {
+    firstname: 'Roosevelt',
+    lastname: 'Koepp',
+    totalprice: 117,
+    depositpaid: true,
+    bookingdates: { checkin: '2026-04-16', checkout: '2026-04-16' },
+    additionalneeds: 'zcbTDO0WRG'
+  }
+}

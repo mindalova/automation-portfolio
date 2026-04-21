@@ -1,0 +1,19 @@
+{
+  firstname: 'Hannah',
+  lastname: 'Graham',
+  totalprice: '1807141565',
+  depositpaid: true,
+  bookingdates: { checkin: '2026-04-16', checkout: '2026-04-17' },
+  additionalneeds: 'NtyS58iWWc'
+}
+{
+  bookingid: 3232,
+  booking: {
+    firstname: 'Hannah',
+    lastname: 'Graham',
+    totalprice: 1807141565,
+    depositpaid: true,
+    bookingdates: { checkin: '2026-04-16', checkout: '2026-04-17' },
+    additionalneeds: 'NtyS58iWWc'
+  }
+}

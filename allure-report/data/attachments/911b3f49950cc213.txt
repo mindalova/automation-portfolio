@@ -1,0 +1,19 @@
+{
+  firstname: 'Gwen',
+  lastname: 'Bogan',
+  totalprice: '8679979310',
+  depositpaid: false,
+  bookingdates: { checkin: '2026-04-16', checkout: '2026-04-16' },
+  additionalneeds: 'RYG6YmjPOl'
+}
+{
+  bookingid: 2681,
+  booking: {
+    firstname: 'Gwen',
+    lastname: 'Bogan',
+    totalprice: 8679979310,
+    depositpaid: false,
+    bookingdates: { checkin: '2026-04-16', checkout: '2026-04-16' },
+    additionalneeds: 'RYG6YmjPOl'
+  }
+}
