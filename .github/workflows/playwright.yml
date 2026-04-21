@@ -63,9 +63,10 @@ jobs:
 
       - name: Upload report to S3
         if: always()
-        run: aws s3 sync allure-report s3://playwright-reports-petya-mindalova/allure-report --delete
+        run: |
+          aws s3 sync allure-report s3://playwright-reports-petya-mindalova/allure-report --delete
 
       - name: Print report URL
         if: always()
-        run: echo "Report: http://playwright-reports-petya-mindalova.s3-website.eu-north-1.amazonaws.com/allure-report/index.html"
-        
+        run: |
+          echo "Report: http://playwright-reports-petya-mindalova.s3-website.eu-north-1.amazonaws.com/allure-report/index.html"
