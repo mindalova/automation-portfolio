@@ -52,3 +52,20 @@ jobs:
         with:
           name: test-results
           path: test-results
+
+      - name: Configure AWS credentials
+        if: always()
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-north-1
+
+      - name: Upload report to S3
+        if: always()
+        run: aws s3 sync allure-report s3://playwright-reports-petya-mindalova/allure-report --delete
+
+      - name: Print report URL
+        if: always()
+        run: echo "Report: http://playwright-reports-petya-mindalova.s3-website.eu-north-1.amazonaws.com/allure-report/index.html"
+        
