@@ -26,7 +26,7 @@ export default defineConfig({
   projects: [
     {
       name: 'ui',
-      testDir: './tests/ui',
+      testDir: './tests/UI',
       use: {
         ...devices['Desktop Chrome'],
         baseURL: 'https://petya-automation.eu/',
@@ -34,7 +34,7 @@ export default defineConfig({
     },
     {
       name: 'api',
-      testDir: './tests/api',
+      testDir: './tests/API',
       use: {
         baseURL: 'https://restful-booker.herokuapp.com',
       },
