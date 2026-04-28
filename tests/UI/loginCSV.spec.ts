@@ -3,9 +3,9 @@ import { test, expect } from '@playwright/test';
 import * as fs from 'fs';
 import * as path from 'path';
 import { parse } from 'csv-parse/sync';
-import { LoginPage } from '../pages/LoginPage';
-import { TestConfig } from '../test.config';
-import { HomePage } from '../pages/HomePage';
+import { LoginPage } from '../../pages/LoginPage';
+import { TestConfig } from '../../test.config';
+import { HomePage } from '../../pages/HomePage';
 
 interface UserRow {
   email: string;
@@ -17,7 +17,7 @@ interface UserRow {
 const testConfig = new TestConfig();
 
 // read CSV file and parse it into an array of objects
-const csvFile = fs.readFileSync(path.join(__dirname, '../testdata/users.csv'));
+const csvFile = fs.readFileSync(path.join(__dirname, '../../testdata/users.csv'));
 const testData: UserRow[] = parse(csvFile, {
   columns: true,         // first row contains column names
   skip_empty_lines: true

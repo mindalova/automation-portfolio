@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { HomePage } from '../pages/HomePage';
-import { TestConfig } from '../test.config';
+import { HomePage } from '../../pages/HomePage';
+import { TestConfig } from '../../test.config';
 
 const testConfig = new TestConfig();
 

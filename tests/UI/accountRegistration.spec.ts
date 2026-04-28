@@ -1,8 +1,8 @@
 import {test, expect} from '@playwright/test';
-import { HomePage } from '../pages/HomePage';
-import { RegisterPage } from '../pages/RegisterPage';   
-import { TestConfig } from '../test.config';
-import { RandomDataUtil } from '../utils/randomDataGenerator';
+import { HomePage } from '../../pages/HomePage';
+import { RegisterPage } from '../../pages/RegisterPage';   
+import { TestConfig } from '../../test.config';
+import { RandomDataUtil } from '../../utils/randomDataGenerator';
 
 const testConfig = new TestConfig();
 

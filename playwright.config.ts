@@ -1,8 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
-
 export default defineConfig({
-  testDir: './tests',
   timeout: 30 * 1000,
 
   fullyParallel: false,
@@ -18,7 +16,6 @@ export default defineConfig({
   ],
 
   use: {
-    baseURL: 'https://petya-automation.eu/',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
@@ -28,28 +25,19 @@ export default defineConfig({
 
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: 'ui',
+      testDir: './tests/ui',
+      use: {
+        ...devices['Desktop Chrome'],
+        baseURL: 'https://petya-automation.eu/',
+      },
     },
-
-    /* {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    }, */
-
-   /*  {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    }, */
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
+    {
+      name: 'api',
+      testDir: './tests/api',
+      use: {
+        baseURL: 'https://restful-booker.herokuapp.com',
+      },
+    },
   ],
 });

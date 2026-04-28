@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
-import testData from '../testdata/users.json';
-import { LoginPage } from '../pages/LoginPage';
-import { HomePage } from '../pages/HomePage';
-import { TestConfig } from '../test.config';
+import testData from '../../testdata/users.json';
+import { LoginPage } from '../../pages/LoginPage';
+import { HomePage } from '../../pages/HomePage';
+import { TestConfig } from '../../test.config';
 
 interface UserRow {
   email: string;
