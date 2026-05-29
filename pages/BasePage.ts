@@ -18,6 +18,8 @@ export abstract class BasePage {
   protected readonly orderHistory: Locator;
   protected readonly transactions: Locator;
   protected readonly downloads: Locator;
+  protected readonly cartToggle: Locator;
+  protected readonly viewCartButton: Locator;
 
   // middle
   protected readonly logo: Locator;
@@ -47,7 +49,10 @@ export abstract class BasePage {
     this.logoutButton = page.getByRole('link', { name: "Logout" }).first()
     this.registerButton = page.locator('a').filter({ hasText: 'Register' }).first();
     this.checkoutButton = page.getByRole('link', { name: "Checkout" });
+    this.shoppingcartButton = page.getByRole('link', { name: 'Shopping Cart' }).first();
     this.wishlistButton = page.getByRole('link', { name: "Wish List" }).first();
+    this.cartToggle = page.locator('#cart button').first();
+    this.viewCartButton = page.getByRole('link', { name: 'View Cart' });
 
     //middle
     this.logo = page.locator('#logo');
@@ -71,6 +76,11 @@ async goToLoginPage() {
     this.loginButton.click();
   }
 
+  //go to home page
+  async goToHomePage() {
+    await this.page.locator('#logo').click();
+  }
+
   // go to registration page
   async goToRegisterPage() {
     try {
@@ -81,5 +91,10 @@ async goToLoginPage() {
         throw error; 
     }
 }
+
+  // items in the cart
+  async viewItemsInTheCart() {
+    return await this.itemsInTheCartButton.textContent();
+  }
 
 }

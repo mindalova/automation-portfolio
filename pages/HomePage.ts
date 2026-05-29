@@ -1,25 +1,20 @@
 import {Page, expect, Locator} from '@playwright/test';
 import { LaptopsAndNotebooks } from './LaptopsAndNotebooksPage';
+import { CartPage } from './CartPage';
 import { BasePage } from './BasePage';
 
 export class HomePage extends BasePage {
 
     
-    //locators
-        
-                
+    //locators  
         
         private readonly laptopsAndNotebooks: Locator;
 
     //constructor
         constructor(page: Page) {
 
-        super(page);
-
-        
-        
-        
-        
+        super(page);          
+       
         this.laptopsAndNotebooks = page.getByRole('link', { name: 'Laptops & Notebooks' });
     }
     
@@ -34,14 +29,28 @@ export class HomePage extends BasePage {
 
         }
 }
-    
-
-   
+      
 
     async goToLaptopsAndNotebooksPage() {
         await this.laptopsAndNotebooks.click();
         await expect(this.page).toHaveURL(/route=product\/category&path=57/);
         return new LaptopsAndNotebooks(this.page);
+    }
+
+    async goToCartPage(): Promise<CartPage> {
+        await this.cartToggle.waitFor({ state: 'visible' });
+        await this.cartToggle.click();
+
+        if (!(await this.viewCartButton.isVisible())) {
+            await this.cartToggle.click();
+        }
+
+        await this.viewCartButton.waitFor({ state: 'visible' });
+        await Promise.all([
+            this.page.waitForURL(/route=checkout\/cart/),
+            this.viewCartButton.click(),
+        ]);
+        return new CartPage(this.page);
     }
 
     
