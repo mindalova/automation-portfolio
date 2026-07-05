@@ -66,8 +66,8 @@ export class LaptopsAndNotebooks {
     }
 
     async sortByAz(){
-        await this.sortByDropdownAZ.click();
-        await expect(this.sortByDropdown).toHaveValue('Name (A - Z)');
+        await this.sortByDropdown.selectOption({label: 'Name (A - Z)'});
+        await expect(this.page).toHaveURL(/order=ASC/);
         const names = (await this.productNames.allTextContents()).map((name) => name.trim());
         const sortedNames = [...names].sort((a, b) =>
             a.localeCompare(b, undefined, { sensitivity: 'base' })

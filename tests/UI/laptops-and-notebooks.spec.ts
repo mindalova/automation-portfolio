@@ -30,9 +30,9 @@ test.describe('Laptops and Notebooks', () => {
 
     test.describe('Sort By', ()=>{
         test('Name: A to Z', async () => {
-            await laptopsPage.sortByAz;
+            await laptopsPage.sortByAz();
         });
-        test.only('Name: Z to A', async () => {
+        test('Name: Z to A', async () => {
             await laptopsPage.sortByZa();
         });
     });
