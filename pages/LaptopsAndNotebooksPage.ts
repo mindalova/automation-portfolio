@@ -76,8 +76,7 @@ export class LaptopsAndNotebooks {
     }
 
     async sortByZa(){
-       await this.sortByDropdown.click();
-        
+      
         await this.sortByDropdown.selectOption({label: 'Name (Z - A)'});
         await expect(this.page).toHaveURL(/order=DESC/);
         const names = (await this.productNames.allTextContents()).map((name) => name.trim());
