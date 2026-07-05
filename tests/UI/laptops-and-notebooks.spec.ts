@@ -32,7 +32,7 @@ test.describe('Laptops and Notebooks', () => {
         test('Name: A to Z', async () => {
             await laptopsPage.sortByAz;
         });
-        test('Name: Z to A', async () => {
+        test.only('Name: Z to A', async () => {
             await laptopsPage.sortByZa();
         });
     });

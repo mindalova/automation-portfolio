@@ -10,6 +10,7 @@ export class LaptopsAndNotebooks {
     private readonly pageTitle:Locator;
     private readonly listView:Locator;
     private readonly gridView:Locator;
+    private readonly sortByDropdown:Locator;
     private readonly sortByDropdownAZ:Locator;
     private readonly sortByDropdownZA:Locator;
     private readonly show25Dropdown:Locator;
@@ -28,6 +29,7 @@ export class LaptopsAndNotebooks {
         this.pageTitle = page.getByRole('heading', { name: 'Laptops & Notebooks' });
         this.listView = page.locator('#button-list');
         this.gridView = page.locator('#button-grid');
+        this.sortByDropdown = page.locator('#input-sort');
         this.sortByDropdownAZ = page.getByText('Name (A - Z)');
         this.sortByDropdownZA = page.getByText('Name (Z - A)');
         this.show25Dropdown = page.getByText('25');
@@ -73,7 +75,7 @@ export class LaptopsAndNotebooks {
     }
 
     async sortByZa(){
-        await this.sortByDropdownZA.click();
+        await this.sortByDropdown.selectOption({label: 'Name (Z - A)'});
         const names = (await this.productNames.allTextContents()).map((name) => name.trim());
         const sortedNames = [...names].sort((a, b) =>
             b.localeCompare(a, undefined, { sensitivity: 'base' })
